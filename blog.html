@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Kenzo Weiss</title>
+    <link rel="stylesheet" href="globals.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .blog-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            text-align: center;
+        }
+
+        .blog-header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .blog-header p {
+            font-size: 1.25rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .blog-content {
+            padding: 4rem 0;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-image {
+            height: 200px;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .blog-card-content {
+            padding: 2rem;
+        }
+
+        .blog-date {
+            color: #3b82f6;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .blog-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .blog-excerpt {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-tag {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .read-more {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #2563eb;
+        }
+
+        .coming-soon {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: #f9fafb;
+            border-radius: 1rem;
+            margin-top: 2rem;
+        }
+
+        .coming-soon h3 {
+            font-size: 1.5rem;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .coming-soon p {
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        .newsletter {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter h4 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .newsletter input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .newsletter input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        .newsletter button {
+            padding: 0.75rem 1.5rem;
+            background: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter button:hover {
+            background: #2563eb;
+        }
+
+        @media (max-width: 768px) {
+            .blog-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Kenzo Weiss</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">Über Mich</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#portfolio" class="nav-link">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link cta-button">Kontakt</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Header -->
+    <section class="blog-header">
+        <div class="container">
+            <h1>KI & Automatisierung Blog</h1>
+            <p>Insights, Tipps und Trends aus der Welt der KI-Automatisierung und NoCode-Tools</p>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <section class="blog-content">
+        <div class="container">
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <span>N8N Automation Guide</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-date">15. März 2024</div>
+                        <h3>Erste Schritte mit N8N: Ein Leitfaden für Einsteiger</h3>
+                        <p class="blog-excerpt">Entdecken Sie die Grundlagen von N8N und lernen Sie, wie Sie Ihre ersten Workflows erstellen. Von der Installation bis zur ersten Automatisierung.</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">N8N</span>
+                            <span class="blog-tag">Tutorial</span>
+                            <span class="blog-tag">Automatisierung</span>
+                        </div>
+                        <a href="#" class="read-more">Weiterlesen →</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <span>NoCode Tools</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-date">8. März 2024</div>
+                        <h3>Die besten NoCode-Tools für kleine Unternehmen 2024</h3>
+                        <p class="blog-excerpt">Eine umfassende Übersicht der wichtigsten NoCode-Plattformen und wie sie Ihr Unternehmen voranbringen können.</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">NoCode</span>
+                            <span class="blog-tag">Tools</span>
+                            <span class="blog-tag">Unternehmen</span>
+                        </div>
+                        <a href="#" class="read-more">Weiterlesen →</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <span>KI Integration</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-date">1. März 2024</div>
+                        <h3>ChatGPT API in bestehende Workflows integrieren</h3>
+                        <p class="blog-excerpt">Praktische Beispiele und Schritt-für-Schritt Anleitungen zur Integration der ChatGPT API in Ihre Geschäftsprozesse.</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">KI</span>
+                            <span class="blog-tag">ChatGPT</span>
+                            <span class="blog-tag">API</span>
+                        </div>
+                        <a href="#" class="read-more">Weiterlesen →</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <span>Prozessoptimierung</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-date">22. Februar 2024</div>
+                        <h3>5 Geschäftsprozesse, die Sie sofort automatisieren sollten</h3>
+                        <p class="blog-excerpt">Identifizieren Sie die größten Zeitfresser in Ihrem Unternehmen und lernen Sie, wie Sie diese effektiv automatisieren.</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">Prozesse</span>
+                            <span class="blog-tag">Effizienz</span>
+                            <span class="blog-tag">ROI</span>
+                        </div>
+                        <a href="#" class="read-more">Weiterlesen →</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <span>E-Commerce Automation</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-date">15. Februar 2024</div>
+                        <h3>E-Commerce automatisieren: Von der Bestellung bis zur Lieferung</h3>
+                        <p class="blog-excerpt">Komplette Automatisierung Ihres Online-Shops: Bestellabwicklung, Kundenservice und Inventarverwaltung.</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">E-Commerce</span>
+                            <span class="blog-tag">Shopify</span>
+                            <span class="blog-tag">Automatisierung</span>
+                        </div>
+                        <a href="#" class="read-more">Weiterlesen →</a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 6 -->
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <span>Kostenoptimierung</span>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-date">8. Februar 2024</div>
+                        <h3>ROI von Automatisierung: So berechnen Sie den Erfolg</h3>
+                        <p class="blog-excerpt">Messbare Metriken und KPIs zur Bewertung Ihrer Automatisierungsprojekte und deren wirtschaftlichen Erfolg.</p>
+                        <div class="blog-tags">
+                            <span class="blog-tag">ROI</span>
+                            <span class="blog-tag">KPI</span>
+                            <span class="blog-tag">Erfolg</span>
+                        </div>
+                        <a href="#" class="read-more">Weiterlesen →</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Coming Soon Section -->
+            <div class="coming-soon">
+                <h3>Mehr Inhalte folgen bald!</h3>
+                <p>Ich arbeite kontinuierlich an neuen Artikeln über KI-Automatisierung, NoCode-Tools und Prozessoptimierung.</p>
+                
+                <div class="newsletter">
+                    <h4>Newsletter abonnieren</h4>
+                    <p style="margin-bottom: 1rem; font-size: 0.9rem;">Bleiben Sie auf dem Laufenden über neue Blog-Artikel und Automatisierungs-Tipps.</p>
+                    <form class="newsletter-form" onsubmit="handleNewsletterSignup(event)">
+                        <input type="email" placeholder="Ihre E-Mail-Adresse" required>
+                        <button type="submit">Abonnieren</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Kenzo Weiss</h3>
+                    <p>KI-Automatisierung & NoCode-Experte</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="index.html#services">N8N Automatisierung</a></li>
+                        <li><a href="index.html#services">NoCode-Lösungen</a></li>
+                        <li><a href="index.html#services">KI-Integration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="index.html#about">Über Mich</a></li>
+                        <li><a href="index.html#portfolio">Portfolio</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <ul>
+                        <li>kenzo.weiss@example.com</li>
+                        <li>+49 123 456 789</li>
+                        <li>Deutschland</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kenzo Weiss. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function handleNewsletterSignup(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            
+            // Simulate newsletter signup
+            alert(`Vielen Dank! Sie haben sich erfolgreich für den Newsletter angemeldet: ${email}`);
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
